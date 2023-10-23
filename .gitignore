@@ -18,8 +18,6 @@ lib/**/*.js
 custom-elements.json
 test-results.xml
 hack.min.js
-hack-trial-center.min.js
-hack-trial-center.min.css
 *LEGAL.txt
 *.tgz
 

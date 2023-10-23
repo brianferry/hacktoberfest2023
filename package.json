@@ -48,8 +48,6 @@
     "test:watch": "wtr --watch --group default",
     "test:vue": "wtr --watch --group with-vue",
     "test:react": "wtr --watch --group with-react",
-    "e2e": "wireit",
-    "e2e:update": "playwright test --update-snapshots",
     "analyze": "wireit",
     "css": "wireit",
     "proxy": "npx spandx -c spandx.config.cjs",
@@ -111,9 +109,6 @@
         "custom-elements.json"
       ]
     },
-    "css": {
-      "command": "lightningcss --minify --bundle --targets '>= 0.25%' --nesting elements/hack-my-trials/hack-my-trials.css -o elements/hack-my-trials/hack-my-trials-min.css"
-    },
     "lint": {
       "dependencies": [
         "eslint",
@@ -131,12 +126,6 @@
     "watch:compile": {
       "service": true,
       "command": "ttsc --watch"
-    },
-    "e2e": {
-      "command": "playwright test",
-      "dependencies": [
-        "build"
-      ]
     },
     "prepublishOnly": {
       "dependencies": [
@@ -161,7 +150,6 @@
     "@patternfly/eslint-config-elements": "^2.0.1",
     "@patternfly/pfe-select": "^1.12.3",
     "@patternfly/pfe-tools": "^1.3.0",
-    "@playwright/test": "^1.31.1",
     "@types/mocha": "^10.0.0",
     "@xstate/inspect": "*",
     "async-csv": "^2.1.3",

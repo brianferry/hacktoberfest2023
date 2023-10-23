@@ -5,14 +5,9 @@
   "aliases": {
    },
   "site": {
-    "title": "Red Hat Product Trials Elements",
-    "logoUrl": "/docs/assets/logo-red-hat.svg",
-    "favicon": "/docs/assets/logo-red-hat.svg",
-    "description": "Components to support the Product Trials experience.",
+    "title": "Hacktoberfest Elements",
     "componentSubpath": "elements",
     "stylesheets": [
-      "/docs/assets/base.css",
-      "/docs/assets/demos.css"
     ]
   }
 }
