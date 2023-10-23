@@ -1,0 +1,66 @@
+extends: stylelint-config-standard
+ignoreFiles:
+  - node_modules/**/*
+
+rules:
+  alpha-value-notation: number # TODO: fix for `percentage` in tokens
+  color-hex-length: long
+
+  # TODO: fix this in tokens plugin
+  # color-function-notation: modern
+  color-function-notation: null
+
+  custom-property-pattern: _?[a-z]+[a-z0-9-]*
+  declaration-block-no-redundant-longhand-properties:
+    - true
+    - ignoreShorthands:
+        - /grid/
+
+  # TODO: migrate the following paragraph to stylelint-stylistic
+  # see https://github.com/elirasza/stylelint-stylistic/tree/main/lib/rules/indentation
+  string-quotes: double
+  selector-combinator-space-after: always
+  selector-combinator-space-before: always
+  indentation:
+   - 2
+   - indentInsideParens: 'once-at-root-twice-in-block'
+  max-line-length:
+    - 100
+    - ignorePattern: /--rh-font-family-/
+
+  number-max-precision: 6
+  no-descending-specificity:
+    - true
+    - ignore:
+      - selectors-within-list
+  selector-class-pattern: null
+  selector-pseudo-element-colon-notation: single
+  shorthand-property-no-redundant-values: true
+  selector-type-no-unknown:
+    - true
+    - ignore:
+        - custom-elements
+      ignoreTypes:
+        - heading
+        - actions
+
+  selector-pseudo-element-no-unknown:
+    - true
+    - ignorePseudoElements:
+      - /part(.*)/
+
+  rhds/token-values: true
+
+plugins:
+  - ./node_modules/@rhds/tokens/plugins/stylelint.cjs
+
+overrides:
+  - files:
+      - docs/**/*.scss
+    defaultSeverity: warning
+    extends: stylelint-config-standard-scss
+    rules:
+      max-line-length:
+        - 120
+        - ignorePattern: /--rh-font-family-/
+

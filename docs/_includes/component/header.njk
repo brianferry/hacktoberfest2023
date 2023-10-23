@@ -1,0 +1,114 @@
+{% macro menuLink (text, linkUrl, className) %}
+  {% set classes = className %}
+  {% if page.url == linkUrl %}
+    {% set classes = classes + " " + className + "--active" %}
+  {% endif %}
+  <a class="{{ classes }}" href="{{ linkUrl | url }}">
+    {{ text }}
+  </a>
+{% endmacro %}
+
+<script>
+  window.onUsersnapCXLoad = function(api) {
+    api.init();
+  }
+  var script = document.createElement('script');
+  script.async = 1;
+  script.src = 'https://widget.usersnap.com/load/64471a95-72fe-4239-b16d-ebcf8b1219f7?onload=onUsersnapCXLoad';
+  document.getElementsByTagName('head')[0].appendChild(script);
+</script>
+
+<header class="l-header">
+
+  <div class="l-header__logo-bar">
+    <a href="/"><img class="l-header__logo" src="{{ '/assets/red-hat-design-system.svg' | url }}" alt="Red Hat design system logo" style="max-width: 188px; min-width: 42px;" /></a>
+  </div>
+
+  <input id="mobile-menu-toggle" class="menu-toggle element-invisible" type="checkbox" aria-controls="mobile-menu-menu-container">
+
+  <label class="menu-toggle__button l-header__mobile-menu-toggle" for="mobile-menu-toggle" data-controls="mobile-menu-menu-container">
+    <span class="l-header__burger-icon"></span>
+    <span class="menu-toggle-assistive-text element-invisible">Toggle menu visibility</span>
+  </label>
+
+  <div class="menu-toggle__toggleable site-navigation__outer-wrapper">
+    <nav class="l-header__site-navigation site-navigation menu-toggle__toggleable-content-wrapper">
+      <ul class="site-navigation__wrapper">
+        <li class="site-navigation__item">
+          {{ menuLink('Home', '/', 'site-navigation__link') }}
+        </li>
+
+        <!-- About
+
+        <li class="site-navigation__item">
+          {{ menuLink('About this website', '/about/', 'site-navigation__link') }}
+        </li> -->
+
+        <li class="site-navigation__item">
+          {% set extraAttributes = "" %}
+          {% if 'about/' in page.url %}
+            {% set extraAttributes = " open" %}
+          {% endif %}
+          <details {{ extraAttributes }}>
+            <summary class="site-navigation__heading">About</summary>
+            <ul class="site-navigation__sub-menu">
+              <li class="site-navigation__sub-menu__item">
+                {{ menuLink('About this website', '/about/', 'site-navigation__sub-menu__link') }}
+              </li>
+              {%- for about in collections.about -%}
+                <li class="site-navigation__sub-menu__item">
+                  {{ menuLink(about.data.title, about.url, 'site-navigation__sub-menu__link') }}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </details>
+        </li>
+
+        <!-- Elements -->
+
+        <li class="site-navigation__item">
+          <details{{ ' open' if 'elements/' in page.url }}>
+            <summary class="site-navigation__heading">Elements</summary>
+            <ul class="site-navigation__sub-menu">
+              <li class="site-navigation__sub-menu__item">
+                {{ menuLink('All elements', '/elements/', 'site-navigation__sub-menu__link') }}
+              </li>
+              {%- for tagName, docs in collections.elementDocs | groupby('tagName') -%}
+                {%- set fst = docs[0] -%}
+                {%- set slug = fst.slug -%}
+                {%- set href = '/elements/' + slug + '/' -%}
+                {%- set linkTitle = fst.alias or (slug | deslugify) -%}
+                <li class="site-navigation__sub-menu__item">
+                  {{ menuLink(linkTitle, href, 'site-navigation__sub-menu__link') }}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </details>
+        </li>
+
+        <!-- Patterns -->
+
+        <li class="site-navigation__item">
+          {% set extraAttributes = "" %}
+          {% if 'patterns/' in page.url %}
+            {% set extraAttributes = " open" %}
+          {% endif %}
+          <details {{ extraAttributes }}>
+            <summary class="site-navigation__heading">Patterns</summary>
+            <ul class="site-navigation__sub-menu">
+              <li class="site-navigation__sub-menu__item">
+                {{ menuLink('All patterns', '/patterns/', 'site-navigation__sub-menu__link') }}
+              </li>
+              {%- for pattern in collections.pattern -%}
+                <li class="site-navigation__sub-menu__item">
+                  {{ menuLink(pattern.data.title, pattern.url, 'site-navigation__sub-menu__link') }}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </details>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+</header>

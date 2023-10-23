@@ -1,0 +1,49 @@
+header {
+  background: #151515;
+  height: 72px;
+}
+
+header > svg {
+  padding: 16px 32px;
+}
+
+.container {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 1fr;
+  color: #000000;
+}
+
+.left {
+  background-color: #eeeeee;
+  height: 100%;
+  display: grid;
+}
+
+.left > * {
+  border: 1px solid #dddddd;
+  padding: 1em;
+  overflow: hidden;
+}
+
+.left > .preview {
+  max-height: 50vh;
+}
+
+.left > .editor {
+  max-height: 50vh;
+}
+
+.right {
+  background-color: #dddddd;
+  height: 100%;
+}
+
+.output {
+  background-color: #ffffff;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}

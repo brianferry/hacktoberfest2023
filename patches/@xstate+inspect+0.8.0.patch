@@ -1,0 +1,18 @@
+diff --git a/node_modules/@xstate/inspect/es/utils.js b/node_modules/@xstate/inspect/es/utils.js
+index 6f68d62..3768c50 100644
+--- a/node_modules/@xstate/inspect/es/utils.js
++++ b/node_modules/@xstate/inspect/es/utils.js
+@@ -1,5 +1,4 @@
+ import { __assign } from './_virtual/_tslib.js';
+-import safeStringify from 'fast-safe-stringify';
+ import { createMachine, State } from 'xstate';
+ 
+ function getLazy(value) {
+@@ -10,7 +9,6 @@ function stringify(value, replacer) {
+         return JSON.stringify(value, replacer);
+     }
+     catch (e) {
+-        return safeStringify(value, replacer);
+     }
+ }
+ function isReceiverEvent(event) {

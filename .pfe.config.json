@@ -1,0 +1,18 @@
+{
+  "demoURLPrefix": "https://ux.redhat.com/",
+  "sourceControlURLPrefix": "https://github.com/redhat-ux/red-hat-design-system/tree/main/",
+  "tagPrefix": "hack",
+  "aliases": {
+   },
+  "site": {
+    "title": "Red Hat Product Trials Elements",
+    "logoUrl": "/docs/assets/logo-red-hat.svg",
+    "favicon": "/docs/assets/logo-red-hat.svg",
+    "description": "Components to support the Product Trials experience.",
+    "componentSubpath": "elements",
+    "stylesheets": [
+      "/docs/assets/base.css",
+      "/docs/assets/demos.css"
+    ]
+  }
+}

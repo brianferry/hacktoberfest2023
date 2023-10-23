@@ -1,0 +1,10 @@
+{% macro output(content) %}
+  <details>
+    <summary>
+      <h2 class="u-reset">Documentation</h2>
+    </summary>
+
+    {{ content | safe }}
+
+  </details>
+{% endmacro%}
