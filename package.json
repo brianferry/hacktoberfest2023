@@ -37,6 +37,7 @@
   ],
   "scripts": {
     "🐒-DEV": "❓ Development aids",
+    "prestart": "npm run build",
     "start": "wireit",
     "new": "npm init @patternfly/element",
     "🚧-BUILD": "❓ Make packages and artifacts",
