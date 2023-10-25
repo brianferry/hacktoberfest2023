@@ -1,10 +1,14 @@
 import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators/custom-element.js';
 
+import '@rhds/elements/rh-code-block/rh-code-block.js';
+
 import '../hack-email/hack-email.js';
 import '../hack-output/hack-output.js';
 
 import styles from './hack-app.css';
+import { query } from 'lit/decorators/query.js';
+import { HackEmail } from '../hack-email/hack-email.js';
 
 /**
  * App
@@ -13,6 +17,18 @@ import styles from './hack-app.css';
 @customElement('hack-app')
 export class HackApp extends LitElement {
   static readonly styles = [styles];
+
+  @query('hack-email')
+    hackEmail!: HackEmail | null;
+
+  @query('#results')
+    results!: HTMLScriptElement | null;
+
+  updated() {
+    if (this.results && this.hackEmail) {
+      this.results.innerHTML = this.hackEmail.innerHTML.trim() || '';
+    }
+  }
 
   render() {
     return html`
@@ -48,9 +64,10 @@ export class HackApp extends LitElement {
             </hack-email>
           </section>
           <section class="editor">
-            <h1>Editor</h1>
-            <main>test</main>
-            <p>HTML is a language for describing web pages...</p>
+            <rh-code-block compact fullHeight>
+              <script type="text/html" id="results">
+              </script>
+                </rh-code-block>
           </section>
         </section>
         <section class="right">
