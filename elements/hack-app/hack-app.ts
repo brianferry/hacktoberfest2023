@@ -2,6 +2,7 @@ import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators/custom-element.js';
 
 import '@rhds/elements/rh-code-block/rh-code-block.js';
+import { CodeEditor } from '@lrnwebcomponents/code-editor/code-editor.js';
 
 import '../hack-email/hack-email.js';
 import '../hack-output/hack-output.js';
@@ -21,12 +22,17 @@ export class HackApp extends LitElement {
   @query('hack-email')
     hackEmail!: HackEmail | null;
 
-  @query('#results')
-    results!: HTMLScriptElement | null;
+  @query('#editor')
+    editor!: CodeEditor | null;
+
+  get #editorValue() {
+    const email = this.hackEmail?.innerHTML.trim() || '';
+    return email.replace(/(\n+\s*)+/g, '\n');
+  }
 
   updated() {
-    if (this.results && this.hackEmail) {
-      this.results.innerHTML = this.hackEmail.innerHTML.trim() || '';
+    if (this.hackEmail && this.editor) {
+      this.editor.editorValue = this.#editorValue;
     }
   }
 
@@ -64,10 +70,7 @@ export class HackApp extends LitElement {
             </hack-email>
           </section>
           <section class="editor">
-            <rh-code-block compact fullHeight>
-              <script type="text/html" id="results">
-              </script>
-                </rh-code-block>
+            <code-editor id="editor" language="html"></code-editor>
           </section>
         </section>
         <section class="right">
