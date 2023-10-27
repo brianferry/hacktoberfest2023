@@ -15,51 +15,56 @@ header > svg {
 .container {
   margin: 0;
   position: absolute;
+  align-items: stretch;
   inset: 0;
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
   color: #000000;
   background-color: #ffffff;
 }
 
-.container > * {
+.container, .input, .output {
+  display: flex;
+}
+
+.input, .output {
   border: 1px solid #dddddd;
-  resize: both;
+  flex: 1 1 50%;
+}
+
+.preview, .editor {
+  flex: 1 1 auto;
+}
+
+.input {
+  flex-direction: column;
 }
 
 .preview {
-  padding: 1em;
-  max-height: 50vh;
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
   overflow: scroll;
-}
-
-.editor {
-  resize: both;
-  max-height: 50vh;
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
-  overflow: scroll;
-  position: relative;
-}
-
-code-editor {
-  position: absolute;
-  inset: 0;
-}
-
-.output {
-  padding: 1em;
-  height: 100%;
-  display: flex;
-  flex-flow: column;
-  grid-column: 2 / 3;
-  grid-row: 1 / 3;
-  overflow: scroll;
+  border-block-end: 1px solid #dddddd;
 }
 
 hack-email {
   overflow: auto;
+}
+
+.editor {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+code-editor {
+  margin: 0;
+}
+
+.output {
+  height: 100%;
+  flex-flow: column;
+  overflow: scroll;
+  border-inline-start: none;
+  resize: horizontal;
+}
+
+hack-output {
+  margin: 1em;
 }
