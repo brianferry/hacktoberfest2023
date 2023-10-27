@@ -1,3 +1,8 @@
+:host {
+  position: absolute;
+  inset: 0;
+}
+
 header {
   background: #151515;
   height: 72px;
@@ -9,41 +14,52 @@ header > svg {
 
 .container {
   margin: 0;
-  height: 100vh;
+  position: absolute;
+  inset: 0;
   display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 1fr;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
   color: #000000;
+  background-color: #ffffff;
 }
 
-.left {
-  background-color: #eeeeee;
-  height: 100%;
-  display: grid;
-}
-
-.left > * {
+.container > * {
   border: 1px solid #dddddd;
+  resize: both;
+}
+
+.preview {
   padding: 1em;
-  overflow: hidden;
-}
-
-.left > .preview {
   max-height: 50vh;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  overflow: scroll;
 }
 
-.left > .editor {
+.editor {
+  resize: both;
   max-height: 50vh;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  overflow: scroll;
+  position: relative;
 }
 
-.right {
-  background-color: #dddddd;
-  height: 100%;
+code-editor {
+  position: absolute;
+  inset: 0;
 }
 
 .output {
-  background-color: #ffffff;
+  padding: 1em;
   height: 100%;
   display: flex;
   flex-flow: column;
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  overflow: scroll;
+}
+
+hack-email {
+  overflow: auto;
 }
