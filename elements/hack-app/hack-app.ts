@@ -2,6 +2,7 @@ import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators/custom-element.js';
 
 import '@rhds/elements/rh-code-block/rh-code-block.js';
+// @ts-ignore
 import { CodeEditor } from '@lrnwebcomponents/code-editor/code-editor.js';
 
 import '../hack-email/hack-email.js';
