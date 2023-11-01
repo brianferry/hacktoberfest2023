@@ -3,15 +3,6 @@
   inset: 0;
 }
 
-header {
-  background: #151515;
-  height: 72px;
-}
-
-header > svg {
-  padding: 16px 32px;
-}
-
 .container {
   margin: 0;
   position: absolute;
@@ -31,7 +22,7 @@ header > svg {
 }
 
 .preview, .editor {
-  flex: 1 1 auto;
+  flex: 1 1;
 }
 
 .input {
@@ -45,6 +36,7 @@ header > svg {
 
 hack-email {
   overflow: auto;
+  height: 100%;
 }
 
 .editor {
@@ -55,6 +47,7 @@ hack-email {
 
 code-editor {
   margin: 0;
+  height: 100%;
 }
 
 .output {

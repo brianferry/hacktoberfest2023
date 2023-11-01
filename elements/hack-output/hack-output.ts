@@ -6,6 +6,9 @@ import '@rhds/elements/rh-tabs/rh-tabs.js';
 import '@rhds/elements/rh-tabs/rh-tab.js';
 import '@rhds/elements/rh-tabs/rh-tab-panel.js';
 
+// import '@dds/webcomponents/dds-footnote/dds-footnote.js';
+// import '@dds/webcomponents/dds-footnote/dds-footnote-item.js';
+
 import '../hack-result-panel/hack-result-panel.js';
 
 import '@rhds/elements/rh-alert/rh-alert.js';
@@ -32,17 +35,17 @@ export class HackOutput extends LitElement {
       this.colorContrastResults.result = [
         {
           name: 'Color contrast ratio is 4.03:1',
-          result: ['<div>WCAG AA: <span style="color:red; display: inline-block;">FAIL</span></div>', '<div>WCAG AAA: <span style="color:red; display: inline-block;">FAIL</span></div>'],
+          result: ['<span>WCAG AA: <span style="color:red; display: inline-block;">FAIL</span></span>', '<span>WCAG AAA: <span style="color:red; display: inline-block;">FAIL</span></span>'],
+          recommendation: 'Looks like the <rh-cta> element is on a background image. Recommend editing the background image to be darker and checking the email again.',
+        },
+        {
+          name: 'Color contrast ratio is 4.03:1',
+          result: ['<span>WCAG AA: <span style="color:red; display: inline-block;">FAIL</span></span>', '<span>WCAG AAA: <span style="color:red; display: inline-block;">FAIL</span></span>'],
           recommendation: 'Looks like the <rh-cta> element is on a background image. Recommend editing the background image to be darker and checking the email again.'
         },
         {
           name: 'Color contrast ratio is 4.03:1',
-          result: ['<div>WCAG AA: <span style="color:red; display: inline-block;">FAIL</span></div>', '<div>WCAG AAA: <span style="color:red; display: inline-block;">FAIL</span></div>'],
-          recommendation: 'Looks like the <rh-cta> element is on a background image. Recommend editing the background image to be darker and checking the email again.'
-        },
-        {
-          name: 'Color contrast ratio is 4.03:1',
-          result: ['<div>WCAG AA: <span style="color:red; display: inline-block;">FAIL</span></div>', '<div>WCAG AAA: <span style="color:red; display: inline-block;">FAIL</span></div>'],
+          result: ['<span>WCAG AA: <span style="color:red; display: inline-block;">FAIL</span></span>', '<span>WCAG AAA: <span style="color:red; display: inline-block;">FAIL</span></span>'],
           recommendation: 'Looks like the <rh-cta> element is on a background image. Recommend editing the background image to be darker and checking the email again.'
         },
       ];
@@ -80,7 +83,8 @@ export class HackOutput extends LitElement {
         <rh-tab-panel>
           <hack-result-panel id="color-contrast-results">  
             <h2 slot="header">Results</h2>
-            <section slot="subheader">Your email has been checked and the tool found 3 color contrast errors.</section>
+            <section slot="subheader">Your email has been checked and the tool found 3 color contrast errors.
+             </section>
           </hack-result-panel>
         </rh-tab-panel>
         <rh-tab slot="tab">Header</rh-tab>

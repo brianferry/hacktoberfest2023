@@ -53,6 +53,11 @@ export class HackApp extends LitElement {
                       display: flex;
                       flex-flow: column;
                     }
+                    header,
+                    header > h1{
+                      background-color: #fff;
+                      color: #000;
+                    }
                   </style>
                 </head>
                 <body>

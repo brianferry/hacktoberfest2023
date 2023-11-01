@@ -16,6 +16,14 @@ type Result = {
   recommendation: string;
 }
 
+const scrollIntoView = (el: string) => {
+  const hackApp = document.querySelector('hack-app');
+  const element = hackApp?.shadowRoot?.querySelector(el);
+  if (element) {
+    element.scrollIntoView();
+  }
+};
+
 /**
  * Result Panel
  * @slot - Place element content here
