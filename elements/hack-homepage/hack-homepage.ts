@@ -14,6 +14,7 @@ export class HackHomepage extends LitElement {
   render() {
     return html`
       <slot></slot>
+      <a href="../../app/demo/">Go to app</a>
     `;
   }
 }
