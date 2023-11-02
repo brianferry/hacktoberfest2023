@@ -61,3 +61,7 @@ code-editor {
 hack-output {
   margin: 1em;
 }
+
+template {
+  display: block;
+}

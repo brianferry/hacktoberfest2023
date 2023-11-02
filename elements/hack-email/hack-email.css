@@ -3,3 +3,8 @@
   transition: scroll-behavior 0.25s ease-in-out;
   scroll-behavior: smooth;
 }
+
+#container {
+  height: 100%;
+  display: flex;
+}
